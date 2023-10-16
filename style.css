@@ -25,6 +25,7 @@ body {
   font-family: "Samim";
   direction: rtl;
   scroll-behavior: smooth;
+  font-size: 1.25rem;
 }
 
 li {
@@ -127,8 +128,8 @@ li {
 .nav-link {
   color: hsl(var(--site-hue), 61%, 25%, 1);
   display: block;
-  font-size: 1.75rem;
   font-weight: 500;
+  font-size: 1.25em;
   padding: 0.5em;
   text-decoration: none;
 }
@@ -141,7 +142,6 @@ li {
 /* ==== main ==== */
 
 .main {
-  font-size: 1.5rem;
   width: 85%;
   margin-inline: auto;
   line-height: 1.9;
@@ -184,7 +184,6 @@ li {
 .footer-sm-link {
   color: hsl(var(--site-hue), 61%, 30%, 1);
   display: block;
-  font-size: 1.2em;
   font-weight: 700;
   padding-right: 1.5em;
   padding: 0.5em;
@@ -205,6 +204,9 @@ li {
 }
 
 @media only screen and (max-width: 768px) {
+  body {
+    font-size: 1rem;
+  }
   .nav,
   .nav.active {
     transition: 500ms ease-in;
