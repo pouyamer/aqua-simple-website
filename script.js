@@ -2,6 +2,10 @@ const nav = document.querySelector(".nav")
 const hamburgerButtonEl = document.querySelector(".hamburger-button-container")
 const mobileShadowEL = document.querySelector(".mobile-shadow")
 const navInnerScrollBarEl = document.querySelector(".nav-inner-scroll-bar")
+const arrowUpEl = document.querySelector(".arrow-up")
+const headerEl = document.querySelector(".header")
+
+const headerHeight = getComputedStyle(headerEl).height.split("px")[0]
 
 document.addEventListener("click", e => {
   if (e.target.classList.contains("hamburger-button-container")) {
@@ -18,10 +22,20 @@ document.addEventListener("click", e => {
   }
 })
 
-document.addEventListener("scroll", e => {
+document.addEventListener("scroll", () => {
   let scrollPercent =
     (window.scrollY * 100) / (document.body.offsetHeight - window.innerHeight)
 
   if (innerWidth > 768) navInnerScrollBarEl.style.width = scrollPercent + "%"
   else navInnerScrollBarEl.style.height = scrollPercent + "%"
+
+  if (window.scrollY <= headerHeight) {
+    arrowUpEl.classList.add("hidden")
+  } else {
+    arrowUpEl.classList.remove("hidden")
+  }
+})
+
+arrowUpEl.addEventListener("click", () => {
+  window.scrollTo(0, headerHeight)
 })

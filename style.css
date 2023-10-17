@@ -19,12 +19,12 @@
 
 :root {
   --site-hue: 20;
+  scroll-behavior: smooth;
 }
 
 body {
   font-family: "Samim";
   direction: rtl;
-  scroll-behavior: smooth;
   font-size: 1.25rem;
 }
 
@@ -32,18 +32,42 @@ li {
   list-style: none;
 }
 
-.mobile-shadow {
+.arrow-up {
+  background-color: hsl(var(--site-hue), 61%, 85%, 1);
+  border-radius: 50%;
+  bottom: 10px;
+  cursor: pointer;
+  display: grid;
+  font-size: 2em;
+  height: 75px;
+  left: 10px;
+  opacity: 0.6;
+  place-items: center;
   position: fixed;
-  width: 100vw;
-  height: 120%;
-  background-color: #212121;
-  opacity: 0;
-  top: 0;
-  left: 0;
-  z-index: 1;
-
-  pointer-events: none;
   transition: opacity 300ms ease;
+  width: 75px;
+}
+
+.arrow-up.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.arrow-up:not(.hidden):hover {
+  opacity: 1;
+}
+
+.mobile-shadow {
+  background-color: #212121;
+  height: 120%;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  transition: opacity 300ms ease;
+  width: 100vw;
+  z-index: 1;
 }
 
 .mobile-shadow.shown {
@@ -75,12 +99,10 @@ li {
 
 .header {
   background-color: #222;
-  font-family: "Samim-Bold";
-
   display: grid;
-  place-items: center;
-
+  font-family: "Samim-Bold";
   height: 400px;
+  place-items: center;
 }
 .logo-container {
   justify-self: center;
@@ -102,16 +124,15 @@ li {
   background-color: hsl(var(--site-hue), 61%, 85%, 1);
   display: grid;
   place-items: center;
-
   position: sticky;
   top: 0;
 }
 
 .nav-inner-scroll-bar {
+  background-color: hsl(var(--site-hue), 61%, 75%, 1);
+  height: 100%;
   left: 0;
   position: absolute;
-  height: 100%;
-  background-color: hsl(var(--site-hue), 61%, 75%, 1);
   z-index: -1;
 }
 
@@ -150,13 +171,12 @@ li {
 .main-paragraph-container {
   direction: rtl;
   padding-block: 1em;
-  text-align: center;
   text-align: justify;
 }
 
 /* ====== footer ===== */
 .footer {
-  background-color: hsl(var(--site-hue), 61%, 10%, 1);
+  background-color: #222;
   color: hsl(var(--site-hue), 61%, 70%, 1);
   padding: 2em;
 }
@@ -182,13 +202,13 @@ li {
 }
 
 .footer-sm-link {
+  border-right: 1px solid hsl(var(--site-hue), 61%, 5%, 0.2);
   color: hsl(var(--site-hue), 61%, 30%, 1);
   display: block;
   font-weight: 700;
   padding-right: 1.5em;
   padding: 0.5em;
   text-decoration: none;
-  border-right: 1px solid hsl(var(--site-hue), 61%, 5%, 0.2);
 }
 
 .footer-sm-link:last-child {
@@ -207,6 +227,15 @@ li {
   body {
     font-size: 1rem;
   }
+
+  .header {
+    height: 200px;
+  }
+
+  .logo-text {
+    font-size: 6rem;
+  }
+
   .nav,
   .nav.active {
     transition: 500ms ease-in;
@@ -217,7 +246,6 @@ li {
   }
 
   .nav {
-    z-index: 2;
     background-color: hsl(var(--site-hue), 61%, 85%, 1);
     display: flex;
     height: 100vh;
@@ -226,14 +254,15 @@ li {
     right: -110%;
     top: 0;
     width: 50vw;
+    z-index: 2;
   }
 
   .nav-list {
-    width: 50%;
     flex-direction: column;
     gap: 1rem;
     margin-right: 2em;
     margin-top: 2em;
+    width: 50%;
   }
 
   .hamburger-button-container {
@@ -245,13 +274,13 @@ li {
   }
 
   .footer-sm-link {
-    border-right: none;
     border-bottom: 1px solid hsl(var(--site-hue), 61%, 5%, 0.2);
+    border-right: none;
   }
 
   .nav-inner-scroll-bar {
     background-color: hsl(var(--site-hue), 80%, 20%, 0.5);
-    width: 30px;
     height: 0;
+    width: 30px;
   }
 }
