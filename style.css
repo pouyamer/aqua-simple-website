@@ -39,13 +39,13 @@ li {
   cursor: pointer;
   display: grid;
   font-size: 2em;
-  height: 75px;
+  height: 65px;
   left: 10px;
   opacity: 0.6;
   place-items: center;
   position: fixed;
   transition: opacity 300ms ease;
-  width: 75px;
+  aspect-ratio: 1/1;
 }
 
 .arrow-up.hidden {
@@ -67,7 +67,7 @@ li {
   top: 0;
   transition: opacity 300ms ease;
   width: 100vw;
-  z-index: 1;
+  z-index: 3;
 }
 
 .mobile-shadow.shown {
@@ -80,12 +80,13 @@ li {
   align-items: center;
   cursor: pointer;
   flex-direction: column;
-  height: 80px;
+  height: 65px;
   justify-content: space-evenly;
   position: absolute;
-  width: 80px;
+  aspect-ratio: 1;
   /* For non-mobile: hide */
   display: none;
+  z-index: 2;
 }
 
 .hamburger-button-segment {
@@ -272,7 +273,7 @@ li {
     right: -110%;
     top: 0;
     width: 50vw;
-    z-index: 2;
+    z-index: 4;
   }
 
   .nav-list {
