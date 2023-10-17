@@ -1,0 +1,7 @@
+const nav = document.querySelector(".nav")
+const hamburgerButtonEl = document.querySelector(".hamburger-button-container")
+const mobileShadowEL = document.querySelector(".mobile-shadow")
+const navInnerScrollBarEl = document.querySelector(".nav-inner-scroll-bar")
+const arrowUpEl = document.querySelector(".arrow-up")
+const headerEl = document.querySelector(".header")
+const canvas = document.querySelector(".canvas")
