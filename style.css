@@ -150,7 +150,7 @@ li {
 .nav-inner-scroll-bar {
   background-color: hsl(var(--site-hue), 61%, 75%, 1);
   height: 100%;
-  left: 0;
+  right: 0;
   position: absolute;
   z-index: -1;
 }
@@ -299,6 +299,7 @@ li {
 
   .nav-inner-scroll-bar {
     background-color: hsl(var(--site-hue), 80%, 20%, 0.5);
+    left: 0;
     height: 0;
     width: 30px;
   }
