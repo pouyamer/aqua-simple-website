@@ -31,3 +31,7 @@ document.addEventListener("scroll", () => {
 arrowUpEl.addEventListener("click", () => {
   window.scrollTo(0, headerHeight)
 })
+
+window.addEventListener("resize", () => {
+  initializeCanvas()
+})

@@ -3,34 +3,36 @@ const themeHue = getComputedStyle(
 ).getPropertyValue("--site-hue")
 
 // Canvas Application
-const ctx = canvas.getContext("2d")
-
-canvas.width = getComputedStyle(headerEl).width.split("px")[0]
-canvas.height = getComputedStyle(headerEl).height.split("px")[0]
-
 const hslStringify = (h, s, l, a = 1) => `hsl(${h}, ${s}%, ${l}%, ${a})`
 
-const fireflies = []
+const ctx = canvas.getContext("2d")
+let fireflies = []
 
-const { min, max } = config.fireflies.size
-const { min: minSpeed, max: maxSpeed } = config.fireflies.speed
+const initializeCanvas = () => {
+  fireflies = []
+  canvas.width = getComputedStyle(headerEl).width.split("px")[0]
+  canvas.height = getComputedStyle(headerEl).height.split("px")[0]
 
-for (let i = 0; i < config.fireflies.number; i++) {
-  fireflies.push(
-    new FireFly(
-      Math.random() * canvas.width,
-      Math.random() * canvas.height,
-      Math.random() * (max - min) + min,
-      {
-        h: config.rainbowMode ? Math.random() * 360 : themeHue,
-        s: config.fireflies.color.s,
-        l: config.fireflies.color.l,
-        a: config.fireflies.color.a
-      },
-      Math.random() * (maxSpeed - minSpeed) + minSpeed,
-      config.rainbowMode
+  const { min, max } = config.fireflies.size
+  const { min: minSpeed, max: maxSpeed } = config.fireflies.speed
+
+  for (let i = 0; i < config.fireflies.number; i++) {
+    fireflies.push(
+      new FireFly(
+        Math.random() * canvas.width,
+        Math.random() * canvas.height,
+        Math.random() * (max - min) + min,
+        {
+          h: config.rainbowMode ? Math.random() * 360 : themeHue,
+          s: config.fireflies.color.s,
+          l: config.fireflies.color.l,
+          a: config.fireflies.color.a
+        },
+        Math.random() * (maxSpeed - minSpeed) + minSpeed,
+        config.rainbowMode
+      )
     )
-  )
+  }
 }
 
 const render = () => {
@@ -53,4 +55,5 @@ const render = () => {
 }
 
 // App Starts here...
+initializeCanvas()
 render()
