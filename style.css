@@ -121,6 +121,7 @@ li {
 .header-container {
   position: relative;
   z-index: 2;
+  pointer-events: none;
 }
 
 .logo-container {
